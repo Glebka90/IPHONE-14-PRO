@@ -1,0 +1,23 @@
+.header {
+    padding: 33px 0;
+    background-color: var(--color-black);
+    color: var(--color-gray);
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    &__inner {
+        display: flex;
+        align-items: center;
+    }
+
+    &__menu-list {
+        @include flex-center;
+        gap: 0 30px;
+    }
+    &__logo {
+        margin: 0 auto;
+    }
+    &__phone{
+        margin-left: auto;
+    }
+}

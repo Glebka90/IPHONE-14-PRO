@@ -1,0 +1,20 @@
+.new {
+    padding: 87px 0 150px;
+    &__block {
+        display: flex;
+        justify-content: space-between;
+        &-text {
+            max-width: 560px;
+            margin-top: 50px;
+        }
+    }
+    &__text--bold {
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 130%;
+        color: var(--color-black);
+    }
+    &__text + &__text {
+        margin-top: 30px;
+    }
+}

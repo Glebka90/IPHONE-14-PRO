@@ -1,0 +1,340 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "Inter";
+  src: url("../fonts/Inter-Light.woff2") font("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("../fonts/Inter-Regular.woff2") font("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("../fonts/Inter-Medium.woff2") font("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("../fonts/Inter-Bold.woff2") font("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: var(--font-family-base);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.28;
+  color: var(--color-black);
+  background-color: var(--color-white);
+  box-sizing: border-box;
+}
+
+a,
+button,
+input,
+textarea,
+svg * {
+  transition-duration: var(--transition-duration);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 77px;
+  color: var(--color-purpur);
+}
+
+h2 {
+  text-align: center;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 39px;
+  color: #717171;
+}
+
+.container {
+  max-width: 1210px;
+  margin-inline: auto;
+  padding: 0 5px;
+}
+
+/**
+  Нормализация блочной модели
+ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/**
+   Убираем внутренние отступы слева тегам списков,
+   у которых есть атрибут class
+  */
+:where(ul, ol):where([class]) {
+  padding-left: 0;
+}
+
+/**
+   Убираем внешние отступы body и двум другим тегам,
+   у которых есть атрибут class
+  */
+body,
+:where(blockquote, figure):where([class]) {
+  margin: 0;
+}
+
+/**
+   Убираем внешние отступы вертикали нужным тегам,
+   у которых есть атрибут class
+  */
+:where(h1, h2, h3, h4, h5, h6, p, ul, ol, dl):where([class]) {
+  margin-block: 0;
+}
+
+:where(dd[class]) {
+  margin-left: 0;
+}
+
+:where(fieldset[class]) {
+  margin-left: 0;
+  padding: 0;
+  border: none;
+}
+
+/**
+   Убираем стандартный маркер маркированному списку,
+   у которого есть атрибут class
+  */
+:where(ul[class]) {
+  list-style: none;
+}
+
+/**
+   Обнуляем вертикальные внешние отступы параграфа,
+   объявляем локальную переменную для внешнего отступа вниз,
+   чтобы избежать взаимодействие с более сложным селектором
+  */
+p {
+  --paragraphMarginBottom: 24px;
+  margin-block: 0;
+}
+
+/**
+   Внешний отступ вниз для параграфа без атрибута class,
+   который расположен не последним среди своих соседних элементов
+  */
+p:where(:not([class]):not(:last-child)) {
+  margin-bottom: var(--paragraphMarginBottom);
+}
+
+/**
+   Упрощаем работу с изображениями
+  */
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/**
+   Наследуем свойства шрифт для полей ввода
+  */
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+html {
+  /**
+   Пригодится в большинстве ситуаций
+   (когда, например, нужно будет "прижать" футер к низу сайта)
+  */
+  height: 100%;
+  /**
+   Плавный скролл
+  */
+  scroll-behavior: smooth;
+}
+
+body {
+  /**
+   Пригодится в большинстве ситуаций
+   (когда, например, нужно будет "прижать" футер к низу сайта)
+  */
+  min-height: 100%;
+  /**
+   Унифицированный интерлиньяж
+  */
+  line-height: 1.5;
+}
+
+/**
+   Приводим к единому цвету svg-элементы
+  */
+svg *[fill] {
+  fill: currentColor;
+}
+
+svg *[stroke] {
+  stroke: currentColor;
+}
+
+/**
+   Чиним баг задержки смены цвета при взаимодействии с svg-элементами
+  */
+svg * {
+  transition-property: fill, stroke;
+}
+
+/**
+   Удаляем все анимации и переходы для людей,
+   которые предпочитают их не использовать
+  */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+:root {
+  --color-black: #0a0a0a;
+  --color-gray: #717171;
+  --color-black-dark: #574b63;
+  --color-white: #fff;
+  --color-white-ligth: #f5f5f5;
+  --color-white-darknes: #f5f5f7;
+  --color-purpur: #541692;
+  --color-purpur-ligth: #490e84;
+  --container-width: 1200px;
+  --font-family-base: "Inter", sans-serif;
+  --transition-duration: 0.2s;
+}
+
+.header {
+  padding: 33px 0;
+  background-color: var(--color-black);
+  color: var(--color-gray);
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 29px;
+}
+.header__inner {
+  display: flex;
+  align-items: center;
+}
+.header__menu-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0 30px;
+}
+.header__logo {
+  margin: 0 auto;
+}
+.header__phone {
+  margin-left: auto;
+}
+
+.baner {
+  padding: 70px 0 40px;
+  background-color: var(--color-white-darknes);
+}
+.baner .baner__inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.baner__image {
+  margin: 40px 0 25px;
+}
+.baner__button {
+  width: 350px;
+  height: 70px;
+  background: var(--color-purpur);
+  border-radius: 30px;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+  color: var(--color-white);
+  border: none;
+  cursor: pointer;
+}
+.baner__button:hover {
+  background-color: var(--color-purpur-ligth);
+}
+
+.new {
+  padding: 87px 0 150px;
+}
+.new__block {
+  display: flex;
+  justify-content: space-between;
+}
+.new__block-text {
+  max-width: 560px;
+  margin-top: 50px;
+}
+.new__text--bold {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 130%;
+  color: var(--color-black);
+}
+.new__text + .new__text {
+  margin-top: 30px;
+}
+
+.select-color {
+  padding: 0 0 150px;
+}
+.select-color__cards {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
+  gap: 0 5px;
+}
+.select-color__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.select-color__card-heading {
+  margin: 20px 0 10px;
+}
+
+.footer {
+  padding: 40px 0;
+  color: var(--color-gray);
+  background-color: var(--color-black);
+}
+.footer__inner {
+  display: flex;
+  align-items: center;
+}
+.footer__logo {
+  margin: 0 auto;
+}
+.footer__pfone {
+  margin-left: auto;
+}/*# sourceMappingURL=style.css.map */
