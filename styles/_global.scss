@@ -18,6 +18,9 @@ svg * {
 a {
     text-decoration: none;
     color: inherit;
+    &:hover {
+        text-decoration: underline;
+    }
 }
 h1 {
     font-weight: 700;
@@ -27,7 +30,6 @@ h1 {
 }
 h2 {
     text-align: center;
-    font-family: "Inter";
     font-style: normal;
     font-weight: 700;
     font-size: 32px;
